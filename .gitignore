@@ -25,3 +25,8 @@ buildNumber.properties
 *.iml
 out
 gen
+/**/.mvn
+/**/HELP.md
+/**/mvnw.cmd
+/**/mvnw
+/**/target
