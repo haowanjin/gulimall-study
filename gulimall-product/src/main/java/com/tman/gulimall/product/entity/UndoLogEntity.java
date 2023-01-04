@@ -39,7 +39,7 @@ private String context;
 	/**
 	 * 
 	 */
-private Longblob rollbackInfo;
+private String rollbackInfo;
 	/**
 	 * 
 	 */
