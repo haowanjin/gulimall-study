@@ -6,12 +6,12 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 商品评价
- * 
- * @author 夏沫止水
- * @email HeJieLin@gulimall.com
- * @date 2020-05-22 19:00:18
+ *
+ * @author haowanjin
+ * @email haowanjin@foxmail.com
+ * @date 2023-01-04 18:45:41
  */
 @Mapper
 public interface SpuCommentDao extends BaseMapper<SpuCommentEntity> {
-	
+
 }

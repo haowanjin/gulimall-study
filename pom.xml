@@ -20,6 +20,15 @@
         <module>renren-generator</module>
         <module>gulimall-common</module>
         <module>gulimall-product</module>
+        <module>gulimall-coupon</module>
+        <module>gulimall-member</module>
+        <module>gulimall-order</module>
+        <module>gulimall-gateway</module>
+        <module>gulimall-search</module>
+        <module>gulimall-seckill</module>
+        <module>gulimall-cart</module>
+        <module>gulimall-ware</module>
+        <module>gulimall-auth-server</module>
     </modules>
 
 
@@ -35,10 +44,27 @@
         <pagehelper.spring.boot.version>1.4.6</pagehelper.spring.boot.version>
         <mysql.version>8.0.28</mysql.version>
         <commons.collections4.version>4.4</commons.collections4.version>
+        <alibaba.cloud.version>2022.0.0.0-RC1</alibaba.cloud.version>
+        <spring-cloud.version>2022.0.0</spring-cloud.version>
+        <redisson.version>3.19.0</redisson.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${alibaba.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -101,7 +127,11 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
