@@ -16,10 +16,13 @@ import com.tman.gulimall.common.utils.PageUtils;
 import com.tman.gulimall.common.utils.R;
 
 
+
 /**
+ * 
+ *
  * @author haowanjin
  * @email haowanjin@foxmail.com
- * @date 2023-01-04 18:45:41
+ * @date 2023-01-05 00:23:01
  */
 @RestController
 @RequestMapping("product/undolog")
@@ -32,7 +35,7 @@ public class UndoLogController {
      */
     @RequestMapping("/list")
     //@RequiresPermissions("product:undolog:list")
-    public R list(@RequestParam Map<String, Object> params) {
+    public R list(@RequestParam Map<String, Object> params){
         PageUtils page = undoLogService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -44,8 +47,8 @@ public class UndoLogController {
      */
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("product:undolog:info")
-    public R info(@PathVariable("id") Long id) {
-        UndoLogEntity undoLog = undoLogService.getById(id);
+    public R info(@PathVariable("id") Long id){
+		UndoLogEntity undoLog = undoLogService.getById(id);
 
         return R.ok().put("undoLog", undoLog);
     }
@@ -55,8 +58,8 @@ public class UndoLogController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("product:undolog:save")
-    public R save(@RequestBody UndoLogEntity undoLog) {
-        undoLogService.save(undoLog);
+    public R save(@RequestBody UndoLogEntity undoLog){
+		undoLogService.save(undoLog);
 
         return R.ok();
     }
@@ -66,8 +69,8 @@ public class UndoLogController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("product:undolog:update")
-    public R update(@RequestBody UndoLogEntity undoLog) {
-        undoLogService.updateById(undoLog);
+    public R update(@RequestBody UndoLogEntity undoLog){
+		undoLogService.updateById(undoLog);
 
         return R.ok();
     }
@@ -77,8 +80,8 @@ public class UndoLogController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("product:undolog:delete")
-    public R delete(@RequestBody Long[] ids) {
-        undoLogService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids){
+		undoLogService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

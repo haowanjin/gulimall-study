@@ -6,12 +6,12 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 优惠券领取历史记录
- *
+ * 
  * @author haowanjin
  * @email haowanjin@foxmail.com
- * @date 2023-01-04 22:11:42
+ * @date 2023-01-05 00:18:12
  */
 @Mapper
 public interface CouponHistoryDao extends BaseMapper<CouponHistoryEntity> {
-
+	
 }

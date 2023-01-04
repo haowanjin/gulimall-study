@@ -11,7 +11,7 @@ import java.util.Map;
  *
  * @author haowanjin
  * @email haowanjin@foxmail.com
- * @date 2023-01-04 22:11:41
+ * @date 2023-01-05 00:18:12
  */
 public interface HomeAdvService extends IService<HomeAdvEntity> {
 

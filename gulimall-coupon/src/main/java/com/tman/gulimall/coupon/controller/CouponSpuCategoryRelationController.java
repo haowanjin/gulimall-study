@@ -16,12 +16,13 @@ import com.tman.gulimall.common.utils.PageUtils;
 import com.tman.gulimall.common.utils.R;
 
 
+
 /**
  * 优惠券分类关联
  *
  * @author haowanjin
  * @email haowanjin@foxmail.com
- * @date 2023-01-04 22:11:42
+ * @date 2023-01-05 00:18:12
  */
 @RestController
 @RequestMapping("coupon/couponspucategoryrelation")
@@ -34,7 +35,7 @@ public class CouponSpuCategoryRelationController {
      */
     @RequestMapping("/list")
     //@RequiresPermissions("coupon:couponspucategoryrelation:list")
-    public R list(@RequestParam Map<String, Object> params) {
+    public R list(@RequestParam Map<String, Object> params){
         PageUtils page = couponSpuCategoryRelationService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -46,8 +47,8 @@ public class CouponSpuCategoryRelationController {
      */
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("coupon:couponspucategoryrelation:info")
-    public R info(@PathVariable("id") Long id) {
-        CouponSpuCategoryRelationEntity couponSpuCategoryRelation = couponSpuCategoryRelationService.getById(id);
+    public R info(@PathVariable("id") Long id){
+		CouponSpuCategoryRelationEntity couponSpuCategoryRelation = couponSpuCategoryRelationService.getById(id);
 
         return R.ok().put("couponSpuCategoryRelation", couponSpuCategoryRelation);
     }
@@ -57,8 +58,8 @@ public class CouponSpuCategoryRelationController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("coupon:couponspucategoryrelation:save")
-    public R save(@RequestBody CouponSpuCategoryRelationEntity couponSpuCategoryRelation) {
-        couponSpuCategoryRelationService.save(couponSpuCategoryRelation);
+    public R save(@RequestBody CouponSpuCategoryRelationEntity couponSpuCategoryRelation){
+		couponSpuCategoryRelationService.save(couponSpuCategoryRelation);
 
         return R.ok();
     }
@@ -68,8 +69,8 @@ public class CouponSpuCategoryRelationController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("coupon:couponspucategoryrelation:update")
-    public R update(@RequestBody CouponSpuCategoryRelationEntity couponSpuCategoryRelation) {
-        couponSpuCategoryRelationService.updateById(couponSpuCategoryRelation);
+    public R update(@RequestBody CouponSpuCategoryRelationEntity couponSpuCategoryRelation){
+		couponSpuCategoryRelationService.updateById(couponSpuCategoryRelation);
 
         return R.ok();
     }
@@ -79,8 +80,8 @@ public class CouponSpuCategoryRelationController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("coupon:couponspucategoryrelation:delete")
-    public R delete(@RequestBody Long[] ids) {
-        couponSpuCategoryRelationService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids){
+		couponSpuCategoryRelationService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }
