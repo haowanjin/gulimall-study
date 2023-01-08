@@ -3,7 +3,10 @@ package com.tman.gulimall.coupon.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,14 +26,28 @@ import com.tman.gulimall.common.utils.R;
  * @email haowanjin@foxmail.com
  * @date 2023-01-05 00:18:12
  */
+
+@RefreshScope
 @RestController
 @RequestMapping("coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
 
+    @Value(value = "${coupon.username}")
+    private String userName;
+    @Value(value = "${coupon.age}")
+    private Integer age;
+
+
+    @RequestMapping("test")
+    public R test() {
+        return R.ok().put("userName", userName).put("age", age);
+    }
+
     @RequestMapping("member/list")
     public R memberCoupon() {
+
         CouponEntity coupon = new CouponEntity();
         coupon.setCouponName("满100减去1元");
         return R.ok().put("coupons", Arrays.asList(coupon));

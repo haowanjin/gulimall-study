@@ -16,7 +16,7 @@
     <description>谷粒商城-优惠券服务</description>
 
     <properties>
-
+        <elasticsearch-client.version>7.16.1</elasticsearch-client.version>
     </properties>
 
     <dependencies>
@@ -34,6 +34,14 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--        elasticsearch 客户端依赖-->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>7.16.1</version>
+        </dependency>
+
 
     </dependencies>
 
