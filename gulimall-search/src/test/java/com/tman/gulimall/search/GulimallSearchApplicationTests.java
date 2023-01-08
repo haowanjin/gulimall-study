@@ -50,25 +50,25 @@ public class GulimallSearchApplicationTests {
 
         request.source(sourceBuilder);
 
-        System.out.println("检索条件：\n" + sourceBuilder);
+        log.info("检索条件：\n{}", sourceBuilder);
 
         SearchResponse response = esRestClient.search(request, RequestOptions.DEFAULT);
 
-        System.out.println("检索结果：\n" + response.toString());
+        log.info("检索结果：\n{}", response.toString());
         SearchHit[] hits = response.getHits().getHits();
 
         for (SearchHit hit : hits) {
             Product product = JSON.parseObject(hit.getSourceAsString(), Product.class);
-            System.out.println(JSON.toJSONString(product));
+            log.info(JSON.toJSONString(product));
         }
 
         Aggregations aggregations = response.getAggregations();
         Terms nameAgg1 = aggregations.get("nameAgg");
         for (Terms.Bucket bucket : nameAgg1.getBuckets()) {
-            System.out.println("产品名：" + bucket.getKey());
+            log.info("产品名：{}", bucket.getKey());
         }
         Avg avgAgg1 = aggregations.get("weightAvgAgg");
-        System.out.println("平均重量：" + avgAgg1.getValue());
+        log.info("平均重量：{}", avgAgg1.getValue());
     }
 
     @Test
@@ -80,7 +80,7 @@ public class GulimallSearchApplicationTests {
         indexRequest.source(jsonString, XContentType.JSON);
         IndexResponse response = esRestClient.index(indexRequest, RequestOptions.DEFAULT);
 
-        System.out.println(JSON.toJSONString(response));
+        log.info("操作结果：{}", response);
 
     }
 
