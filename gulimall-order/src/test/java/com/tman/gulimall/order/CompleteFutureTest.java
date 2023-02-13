@@ -7,6 +7,11 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * CompletableFuture 学习
+ *
+ *
+ */
 public class CompleteFutureTest {
 
     @Test
@@ -19,9 +24,7 @@ public class CompleteFutureTest {
             System.out.println(Thread.currentThread().getName() + " supplyAsync");
             return "thenAccept";
         }), threadPool);
-        f2.thenAccept(e->{
-            System.out.println(Thread.currentThread().getName() +" thenAccept 接收到supplyAsync 的值：" +e);
-        });
+        f2.thenAccept(e-> System.out.println(Thread.currentThread().getName() +" thenAccept 接收到supplyAsync 的值：" +e));
         CompletableFuture.allOf(f,f2).get();
 
     }
